@@ -14,12 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # ルートURLへアクセスされた場合、mainアプリケーションのurls.pyへ処理を転送する
-    # (例)http://127.0.0.1:8000 にアクセスされた場合、ここにパターンマッチする
-    path('', include('main.urls')),
+    # http://127.0.0.1/main/ がリクエストされた場合、ここにパターンマッチ
+    path('main/', include('main.urls')),
 ]
