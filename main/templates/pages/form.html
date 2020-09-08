@@ -5,6 +5,90 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>登録画面</h1>
+    <h3>社員情報登録</h3>
+        <form action="allList.html" method="post"><table border="0">
+            <tr>
+                <td><b></b>社員番号</td>
+                <td><input type="text" name="employeeNum" size="30" maxlength="20" placeholder="社員番号"></td>
+            </tr>
+            <tr>
+                <td><b></b>氏名（漢字）</td>
+                <td><input type="text" name="lastName" size="30" maxlength="20" placeholder="氏（漢字）"></td>                
+                <td><input type="text" name="firstName" size="30" maxlength="20" placeholder="名（漢字）"></td>
+            </tr>
+            <tr>
+                <td><b></b>氏名（かな）</td>
+                <td><input type="text" name="lastKanaName" size="30" maxlength="20" placeholder="氏（かな）"></td>                
+                <td><input type="text" name="firstKanaName" size="30" maxlength="20" placeholder="氏（かな）"></td>
+            </tr>
+            <tr>
+                <td><b></b>電話番号</td>
+                <td><input type="text" name="phoneNumber" size="30" maxlength="20" placeholder="電話番号"></td>                
+            </tr>
+            <tr>
+                <td><b></b>メールアドレス</td>
+                <td><input type="text" name="email" size="30" maxlength="20" placeholder="eメールアドレス"></td>                
+            </tr>
+            <tr>
+                <td><b></b>パスワード</td>
+                <td><input type="password" name="pass" size="6" maxlength="4" placeholder="パスワード"></td>
+            </tr>
+            <tr>
+                <td><b></b>パスワード（確認）</td>
+                <td><input type="password" name="pass" size="6" maxlength="4" placeholder="パスワード（確認のためもう一度入力してください）"></td>
+            </tr>
+            <tr>
+                <td>生年月日</td>
+                <td>
+                <select name="year">
+                {% for i in yearList %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+                </select>
+                <select name="month">
+                {% for i in monthList %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+                </select>
+                <select name="day">
+                {% for i in dayList %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>性別</td>
+                <td>
+                <input type="radio" name="gender" value="未選択">未選択
+                <input type="radio" name="gender" value="男性">男性
+                <input type="radio" name="gender" value="女性">女性
+                </td>
+            </tr>
+            <tr>
+                <td><b></b>部署</td>
+                <td>
+                <select name="section">
+                    <option value="yakuinn">役員</option>
+                    <option value="Tau">イノベーション推進室</option>
+                    <option value="Gem">市場開発部</option>
+                    <option value="kei">経営管理本部</option>
+                    <option value="koukyou">公共事業部</option>
+                    <option value="kaihatsu">システム開発事業部</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>自己紹介</td>
+                <td><textarea name="自己紹介" rows="4" cols="40"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                <input type="submit" value="登録" name="regist">
+                <input type="reset" value="リセット" name="reset">
+                </td>
+            </tr>
+            </table></form>
 </body>
 </html>
