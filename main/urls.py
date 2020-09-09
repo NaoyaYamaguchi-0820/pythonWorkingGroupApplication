@@ -10,4 +10,7 @@ urlpatterns = [
     path('form/', views.form, name="form"),
     path('allList/', views.allList, name="allList"),
 
+    path('example_form/', views.example_form, name="example_form"),
+    path('example_create/', views.example_create, name="example_create"),
+
 ]
