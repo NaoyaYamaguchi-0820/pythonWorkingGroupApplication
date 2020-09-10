@@ -1,10 +1,47 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>Document</title>
 </head>
 <body>
     <h1>一覧表示</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>社員番号</th>
+                <th>氏（漢字）</th>
+                <th>名（漢字）</th>
+                <th>氏（かな）</th>
+                <th>名（かな）</th>
+                <th>電話番号</th>
+                <th>eメールアドレス</th>
+                <th>誕生日</th>
+                <th>性別</th>
+                <th>部署</th>
+                <th>自己紹介</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employeeList %}
+            <tr>
+                <td>{{ employee.employeeNum }}</td>
+                <td>{{ employee.lastName }}</td>
+                <td>{{ employee.firstName }}</td>
+                <td>{{ employee.lastKanaName }}</td>
+                <td>{{ employee.firstKanaName }}</td>
+                <td>{{ employee.phoneNumber }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.birthday }}</td>
+                <td>{{ employee.gender }}</td>
+                <td>{{ employee.section }}</td>
+                <td>{{ employee.jikoShokai }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
