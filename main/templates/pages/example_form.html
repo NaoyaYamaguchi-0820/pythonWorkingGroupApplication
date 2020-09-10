@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>example_form.html</title>
+</head>
+<body>
+    <h1>example_form.html</h1>
+
+    <form action="{% url 'main:example_create' %}" method="POST" novalidate>
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="登録">
+
+    </form>
+</body>
+</html>

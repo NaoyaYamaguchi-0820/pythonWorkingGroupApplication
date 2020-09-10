@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,7 +8,11 @@
 </head>
 <body>
     <h3>社員情報登録</h3>
-        <form action="allList.html" method="post"><table border="0">
+        <form action="{% url 'main:allList' %}" method="post"><table border="0">
+
+
+            {% csrf_token %}
+
             <tr>
                 <td><b></b>社員番号</td>
                 <td><input type="text" name="employeeNum" size="30" maxlength="20" placeholder="社員番号"></td>
@@ -19,7 +25,7 @@
             <tr>
                 <td><b></b>氏名（かな）</td>
                 <td><input type="text" name="lastKanaName" size="30" maxlength="20" placeholder="氏（かな）"></td>                
-                <td><input type="text" name="firstKanaName" size="30" maxlength="20" placeholder="氏（かな）"></td>
+                <td><input type="text" name="firstKanaName" size="30" maxlength="20" placeholder="名（かな）"></td>
             </tr>
             <tr>
                 <td><b></b>電話番号</td>
@@ -31,11 +37,11 @@
             </tr>
             <tr>
                 <td><b></b>パスワード</td>
-                <td><input type="password" name="pass" size="6" maxlength="4" placeholder="パスワード"></td>
+                <td><input type="password" name="password" size="6" maxlength="4" placeholder="パスワード"></td>
             </tr>
             <tr>
                 <td><b></b>パスワード（確認）</td>
-                <td><input type="password" name="pass" size="6" maxlength="4" placeholder="パスワード（確認のためもう一度入力してください）"></td>
+                <td><input type="password" name="password" size="6" maxlength="4" placeholder="パスワード（確認のためもう一度入力してください）"></td>
             </tr>
             <tr>
                 <td>生年月日</td>
