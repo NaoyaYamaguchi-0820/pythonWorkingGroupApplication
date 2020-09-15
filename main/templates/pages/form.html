@@ -3,65 +3,47 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <link rel="styleseet" href="{% static 'css/bootstrap.min.css'%}">
     <meta charset="UTF-8">
     <title>社員情報登録</title>
 </head>
 <body>
     <h3>社員情報登録</h3>
-        <form action="{% url 'main:allList' %}" method="post"><table border="0">
-
-
+        <form action="{% url 'main:example_create' %}" method="post"><table border="0">
             {% csrf_token %}
-
             <tr>
-                <td><b></b>社員番号</td>
-                <td><input type="text" name="employeeNum" size="30" maxlength="20" placeholder="社員番号"></td>
+                <td>社員番号</td>
+                <td>{{ form.employeeNum }}</td>
             </tr>
             <tr>
                 <td><b></b>氏名（漢字）</td>
-                <td><input type="text" name="lastName" size="30" maxlength="20" placeholder="氏（漢字）"></td>                
-                <td><input type="text" name="firstName" size="30" maxlength="20" placeholder="名（漢字）"></td>
+                <td>{{ form.lastName }}</td>
+                <td>{{ form.firstName }}</td>
             </tr>
             <tr>
                 <td><b></b>氏名（かな）</td>
-                <td><input type="text" name="lastKanaName" size="30" maxlength="20" placeholder="氏（かな）"></td>                
-                <td><input type="text" name="firstKanaName" size="30" maxlength="20" placeholder="名（かな）"></td>
+                <td>{{ form.lastKanaName }}</td>
+                <td>{{ form.firstKanaName }}</td>
             </tr>
             <tr>
                 <td><b></b>電話番号</td>
-                <td><input type="text" name="phoneNumber" size="30" maxlength="20" placeholder="電話番号"></td>                
+                <td>{{ form.phoneNumber }}</td>
             </tr>
             <tr>
                 <td><b></b>メールアドレス</td>
-                <td><input type="text" name="email" size="30" maxlength="20" placeholder="eメールアドレス"></td>                
+                <td>{{ form.email }}</td>
             </tr>
             <tr>
                 <td><b></b>パスワード</td>
-                <td><input type="password" name="password" size="6" maxlength="4" placeholder="パスワード"></td>
+                <td>{{ form.password }}</td>
             </tr>
             <tr>
                 <td><b></b>パスワード（確認）</td>
-                <td><input type="password" name="password" size="6" maxlength="4" placeholder="パスワード（確認のためもう一度入力してください）"></td>
+                <td>{{ form.password }}</td>
             </tr>
             <tr>
                 <td>生年月日</td>
-                <td>
-                <select name="year">
-                {% for i in yearList %}
-                    <option value="{{ i }}">{{ i }}</option>
-                {% endfor %}
-                </select>
-                <select name="month">
-                {% for i in monthList %}
-                    <option value="{{ i }}">{{ i }}</option>
-                {% endfor %}
-                </select>
-                <select name="day">
-                {% for i in dayList %}
-                    <option value="{{ i }}">{{ i }}</option>
-                {% endfor %}
-                </select>
-                </td>
+                <td>{{ form.birthday }}</td>
             </tr>
             <tr>
                 <td>性別</td>
@@ -73,20 +55,11 @@
             </tr>
             <tr>
                 <td><b></b>部署</td>
-                <td>
-                <select name="section">
-                    <option value="yakuinn">役員</option>
-                    <option value="Tau">イノベーション推進室</option>
-                    <option value="Gem">市場開発部</option>
-                    <option value="kei">経営管理本部</option>
-                    <option value="koukyou">公共事業部</option>
-                    <option value="kaihatsu">システム開発事業部</option>
-                </select>
-                </td>
+                <td>{{ form.section }}</td>
             </tr>
             <tr>
                 <td>自己紹介</td>
-                <td><textarea name="自己紹介" rows="4" cols="40"></textarea></td>
+                <td>{{ form.jikoShokai }}</td>
             </tr>
             <tr>
                 <td></td>

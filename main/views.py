@@ -11,14 +11,20 @@ def index(request):
     return render(request, 'index.html')
 
 def  form(request):
+
+    form = EmployeeModelForm()
     # TODO 生年月日セレクトボックス表示のためのテストコード　<<ここから>>
     yearList = range(1900, 2021)
     monthList = range(1, 13)
     dayList = range(1, 32)
-    return render(request, 'pages/form.html', {
+    return render(
+        request, 
+        'pages/form.html', 
+        {
         'yearList': yearList,
         'monthList': monthList,
         'dayList': dayList,
+        'form': form,
     })
     # テストコード<<ここまで>>
 
@@ -57,7 +63,7 @@ def example_create(request):
     else:
         return render(
             request,
-            'pages/example_form.html',
+            'pages/form.html',
             {
                 'form': form,
             },
