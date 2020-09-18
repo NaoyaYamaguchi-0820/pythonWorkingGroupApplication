@@ -3,71 +3,150 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <link rel="styleseet" href="{% static 'css/bootstrap.min.css'%}">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     <title>社員情報登録</title>
 </head>
 <body>
+    <div class="d-flex p-2 bd-highlight mx-5">
     <h3>社員情報登録</h3>
-        <form action="{% url 'main:example_create' %}" method="post"><table border="0">
+    </div>
+    <div class="mx-5 container-fluid">
+    <span class="text-danger mx-5 container-fluid">*は必須入力項目です</span>
+    <div class="d-flex p-2 bd-highlight mx-5">
+        <form action="{% url 'main:example_create' %}" method="post" novalidate>
+        <table class="table mx-5 container-fluid">
             {% csrf_token %}
             <tr>
-                <td>社員番号</td>
+                <td>社員番号<span class="text-danger">*</span></td>
                 <td>{{ form.employeeNum }}</td>
+                <td class="text-danger">
+                    {% for error in form.employeeNum.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
             </tr>
             <tr>
-                <td><b></b>氏名（漢字）</td>
+                <td>氏名（漢字）<span class="text-danger">*</span></td>
                 <td>{{ form.lastName }}</td>
                 <td>{{ form.firstName }}</td>
-            </tr>
-            <tr>
-                <td><b></b>氏名（かな）</td>
-                <td>{{ form.lastKanaName }}</td>
-                <td>{{ form.firstKanaName }}</td>
-            </tr>
-            <tr>
-                <td><b></b>電話番号</td>
-                <td>{{ form.phoneNumber }}</td>
-            </tr>
-            <tr>
-                <td><b></b>メールアドレス</td>
-                <td>{{ form.email }}</td>
-            </tr>
-            <tr>
-                <td><b></b>パスワード</td>
-                <td>{{ form.password }}</td>
-            </tr>
-            <tr>
-                <td><b></b>パスワード（確認）</td>
-                <td>{{ form.password }}</td>
-            </tr>
-            <tr>
-                <td>生年月日</td>
-                <td>{{ form.birthday }}</td>
-            </tr>
-            <tr>
-                <td>性別</td>
-                <td>
-                <input type="radio" name="gender" value="未選択">未選択
-                <input type="radio" name="gender" value="男性">男性
-                <input type="radio" name="gender" value="女性">女性
+                <td class="text-danger">
+                    {% for error in form.lastName.errors %}
+                        {{ error }}
+                    {% endfor %}
+                    {% for error in form.firstName.errors %}
+                        {{ error }}
+                    {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td><b></b>部署</td>
-                <td>{{ form.section }}</td>
+                <td>氏名（かな）<span class="text-danger">*</span></td>
+                <td>{{ form.lastKanaName }}</td>
+                <td>{{ form.firstKanaName }}</td>
+                <td class="text-danger">
+                    {% for error in form.lastKanaName.errors %}
+                        {{ error }}
+                    {% endfor %}
+                    {% for error in form.firstKanaName.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
-                <td>自己紹介</td>
+                <td>電話番号<span class="text-danger">*</span></td>
+                <td>{{ form.phoneNumber }}</td>
+                <td class="text-danger">
+                    {% for error in form.phoneNumber.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>メールアドレス<span class="text-danger">*</span></td>
+                <td>{{ form.email }}</td>
+                <td class="text-danger">
+                    {% for error in form.email.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>パスワード<span class="text-danger">*</span></td>
+                <td>{{ form.password }}</td>
+                <td class="text-danger">
+                    {% for error in form.password.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>パスワード（確認）<span class="text-danger">*</span></td>
+                <td>{{ form.password }}</td>
+                <td class="text-danger">
+                    {% for error in form.password.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>生年月日<span class="text-danger">*</span></td>
+                <td>{{ form.birthday }}</td>
+                <td class="text-danger">
+                    {% for error in form.birthday.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>性別<span class="text-danger">*</span></td>
+                <td>
+                {{ form.gender }}
+                </td>
+                <td class="text-danger">
+                    {% for error in form.gender.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>部署<span class="text-danger">*</span></td>
+                <td>{{ form.section }}</td>
+                <td class="text-danger">
+                    {% for error in form.section.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自己紹介<span class="text-danger">*</span></td>
                 <td>{{ form.jikoShokai }}</td>
+                <td class="text-danger">
+                    {% for error in form.jikoShokai.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </td>
+                <td></td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                <input type="submit" value="登録" name="regist">
-                <input type="reset" value="リセット" name="reset">
+                    <input type="submit" value="登録" name="regist"  class="btn btn-outline-primary">
+                </td>
+                <td>
+                    <input type="reset" value="リセット" name="reset" class="btn btn-outline-secondary">
                 </td>
             </tr>
-            </table></form>
+            </table>
+        </form>
+    </div>
+    </div>
 </body>
 </html>
