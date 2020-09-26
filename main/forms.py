@@ -18,3 +18,7 @@ class EmployeeModelForm(forms.ModelForm):
             'section',
             'jikoShokai',
         )
+
+        widgets = {
+            'gender': forms.RadioSelect()
+        }

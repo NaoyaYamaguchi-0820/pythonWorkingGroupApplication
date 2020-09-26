@@ -48,8 +48,15 @@ class Employee(models.Model):
         verbose_name='誕生日',
     )
 
-    gender = models.BooleanField(
+    gender = models.CharField(
         verbose_name='性別',
+        max_length=10,
+        choices=[
+            ('未選択', '未選択'),
+            ('男性', '男性'),
+            ('女性', '女性'),
+        ],
+        default='未選択',
     )
 
     section = models.CharField(
