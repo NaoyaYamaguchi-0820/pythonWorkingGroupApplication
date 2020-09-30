@@ -43,8 +43,8 @@ class Employee(models.Model):
 
     phoneNumber = models.CharField(
         verbose_name='電話番号',
-        max_length=11,
-        validators=[RegexValidator(r"^0[789]0-[0-9]{4}-[0-9]{4}$]", '○○○-○○○○-○○○○の形式で入力してください')],
+        max_length=13,
+        validators=[RegexValidator(r"^0[789]0-[0-9]{4}-[0-9]{4}$", '○○○-○○○○-○○○○の形式で入力してください')],
     )
 
     email = models.EmailField(
@@ -62,8 +62,15 @@ class Employee(models.Model):
         validators=[check_futureday],
     )
 
-    gender = models.BooleanField(
+    gender = models.CharField(
         verbose_name='性別',
+        max_length=10,
+        choices=[
+            ('未選択', '未選択'),
+            ('男性', '男性'),
+            ('女性', '女性'),
+        ],
+        default='未選択',
     )
 
     section = models.CharField(
