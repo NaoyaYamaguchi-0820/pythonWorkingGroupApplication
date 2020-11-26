@@ -57,6 +57,11 @@ class Employee(models.Model):
         max_length=20,
     )
 
+    checkedPassword = models.CharField(
+        verbose_name='パスワード確認',
+        max_length=20,
+    )
+
     birthday = models.DateField(
         verbose_name='誕生日',
         validators=[check_futureday],

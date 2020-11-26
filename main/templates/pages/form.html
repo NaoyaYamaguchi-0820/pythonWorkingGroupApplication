@@ -86,9 +86,9 @@
             </tr>
             <tr>
                 <td>パスワード（確認）<span class="text-danger">*</span></td>
-                <td>{{ form.password }}</td>
+                <td>{{ form.checkedPassword }}</td>
                 <td class="text-danger">
-                    {% for error in form.password.errors %}
+                    {% for error in form.checkedPassword.errors %}
                         {{ error }}
                     {% endfor %}
                 </td>

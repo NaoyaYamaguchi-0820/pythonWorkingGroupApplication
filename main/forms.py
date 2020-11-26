@@ -13,6 +13,7 @@ class EmployeeModelForm(forms.ModelForm):
             'phoneNumber',
             'email',
             'password',
+            'checkedPassword',
             'birthday',
             'gender',
             'section',
